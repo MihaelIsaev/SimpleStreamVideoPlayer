@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxf-If-p9R">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="253"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="253" id="z1J-q2-agB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gD-0Z-Lip">
+                                <rect key="frame" x="260" y="266" width="80" height="30"/>
+                                <state key="normal" title="Play stream"/>
+                                <connections>
+                                    <action selector="play" destination="BYZ-38-t0r" eventType="touchUpInside" id="1T5-z0-2PX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-QK-Iy7">
+                                <rect key="frame" x="266" y="304" width="69" height="30"/>
+                                <state key="normal" title="Download"/>
+                                <connections>
+                                    <action selector="download" destination="BYZ-38-t0r" eventType="touchUpInside" id="pYE-0E-ShZ"/>
+                                </connections>
+                            </button>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYa-ig-x57">
+                                <rect key="frame" x="0.0" y="595" width="600" height="5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="SCg-mP-2qB"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2gD-0Z-Lip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2yL-Jo-BuD"/>
+                            <constraint firstItem="Sxf-If-p9R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3gg-1G-VJF"/>
+                            <constraint firstItem="Ut1-QK-Iy7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4jo-qN-flR"/>
+                            <constraint firstItem="2gD-0Z-Lip" firstAttribute="top" secondItem="Sxf-If-p9R" secondAttribute="bottom" constant="13" id="7nB-tI-NUS"/>
+                            <constraint firstItem="yYa-ig-x57" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="K3K-rq-uBr"/>
+                            <constraint firstItem="Ut1-QK-Iy7" firstAttribute="top" secondItem="2gD-0Z-Lip" secondAttribute="bottom" constant="8" id="N3x-XG-wYI"/>
+                            <constraint firstItem="Sxf-If-p9R" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Tat-a3-Nmf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yYa-ig-x57" secondAttribute="bottom" id="TmI-ob-Ard"/>
+                            <constraint firstAttribute="trailing" secondItem="yYa-ig-x57" secondAttribute="trailing" id="WLR-ea-etH"/>
+                            <constraint firstAttribute="trailing" secondItem="Sxf-If-p9R" secondAttribute="trailing" id="lkH-NF-LKO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="downloadButton" destination="Ut1-QK-Iy7" id="nOr-Rg-C1d"/>
+                        <outlet property="playButton" destination="2gD-0Z-Lip" id="fm9-c8-XTx"/>
+                        <outlet property="playerView" destination="Sxf-If-p9R" id="Jgw-Ok-WaK"/>
+                        <outlet property="progressView" destination="yYa-ig-x57" id="pVm-nx-3Wt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="323" y="399"/>
         </scene>
     </scenes>
 </document>
